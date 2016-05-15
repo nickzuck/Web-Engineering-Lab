@@ -17,13 +17,18 @@
 
 			}
 
-			function validate(){
-				var x = document.getElementById('f_name').value ; 
+			function validate(id){
+				var x = document.getElementById(id).value ; 
 				if(x.length == 0){
-					alert("Plase enter the first name")
+					if (id == 'f_name')
+						alert("Please enter the first name")
+					if (id == 'l_name')
+						alert("Please enter the last name")
+					document.getElementById(id).focus() ; 
 				}
-				var y = document.getElementById('l_name').value
 			}
+
+			
 
 		</script>
 
@@ -65,17 +70,17 @@
 		<fieldset style  = "padding: 20px 20px 20px 20px">
 			<legend style = "text-align : center">Personal Info</legend>
 			<form>
-				First Name: <input type= "text" id = "f_name" onblur ="validate()"> <br><br>
-				Last Name: <input type= "text" > <br><br>
+				First Name: <input type= "text" id = "f_name" onblur ="validate('f_name')" name = "fname"> <br><br>
+				Last Name: <input type= "text" id = "l_name" onblur ="validate('l_name')" name = "lname"> <br><br>
 
 				Gender:
 					<div style = "padding-left: 10px">
-						<input type = "radio" name = "Gender">Male<br>
-						<input type = "radio" name="Gender">Female<br>
-						<input type = "radio" name = "Gender">Others<br>
+						<input type = "radio" name = "Gender" value = "M">Male<br>
+						<input type = "radio" name = "Gender" value = "F">Female<br>
+						<input type = "radio" name = "Gender" value = "O">Others<br>
 					</div>
 					<br>
-				Qualification: <select>
+				Qualification: <select name = "Qualification">
 					<option value = "10th">10th</option>
 					<option value = "12th">12th</option>
 					<option value = "Graduation">Graduation</option>
@@ -84,7 +89,7 @@
 
 				<br><br>
 
-				DOB: <input type="text" name = "DOB">
+				DOB: <input type="date" name = "DOB">
 
 				<br><br>
 				Address:
@@ -93,11 +98,11 @@
 
 				Payment: <br>
 				<div style = "padding-left: 10px"> 
-					<input type = "checkbox" name = "Payment">Credit<br>
-					<input type = "checkbox"  name = "Payment">Debit<br>
+					<input type = "checkbox" name = "Payment" value = "Credit">Credit<br>
+					<input type = "checkbox"  name = "Payment" value  = "Debit">Debit<br>
 				</div>
 				<input type = "submit" value="Submit">
-				</form>
+			</form>
 
 		</fieldset>
 
