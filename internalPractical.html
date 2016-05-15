@@ -1,0 +1,105 @@
+<html>
+	<head>
+		<title>Common Entrance Test</title>
+		<script type="text/javascript">
+			function showText(){
+				var a = document.getElementById('imageText') ;
+				a.innerHTML = "Image text"	;
+				var y = document.getElementById('image1')  ;
+
+				// We have to use the full file path if we need to compare the image source
+				if(y.src == "file:///home/nikhil/Desktop/Academics/WE/Lab/fwdweinternalpractical/msit.jpg"){
+					y.src = "autobots.jpg" ; 
+				}
+				else if(y.src == "file:///home/nikhil/Desktop/Academics/WE/Lab/fwdweinternalpractical/autobots.jpg"){
+					y.src = "msit.jpg" ; 
+				}
+
+			}
+
+			function validate(){
+				var x = document.getElementById('f_name').value ; 
+				if(x.length == 0){
+					alert("Plase enter the first name")
+				}
+				var y = document.getElementById('l_name').value
+			}
+
+		</script>
+
+
+	</head>
+	<body style = "margin-left: 100px; margin-right : 50px">
+		<h1 style="text-align: center">CET</h1>
+		<div style = "float:right ;">
+			<img src = "msit.jpg" height  = "100px" width="100px" alt= "image"  onmouseover = "showText()" id = "image1">
+			<div id= "imageText"> </div> 
+		</div>
+		<table border="5px" style = "border-color:green; margin-bottom:30px" height = "100px" width = "400px" >
+			<tr>
+				<th>Subject</th>
+				<th>Date</th>
+				<th>Fee</th>
+				<th>Day</th>
+			</tr>
+
+
+			<tr>
+				<td>B.tech</td>
+				<td>23/4/16</td>
+				<td>600</td>
+				<td>Sunday</td>
+			</tr>
+
+			<tr>
+				<td>M<.tech</td>
+				<td>30/4/16</td>
+				<td>700</td>
+				<td>Sunday</td>
+			</tr>
+		</table>
+
+		
+
+
+		<fieldset style  = "padding: 20px 20px 20px 20px">
+			<legend style = "text-align : center">Personal Info</legend>
+			<form>
+				First Name: <input type= "text" id = "f_name" onblur ="validate()"> <br><br>
+				Last Name: <input type= "text" > <br><br>
+
+				Gender:
+					<div style = "padding-left: 10px">
+						<input type = "radio" name = "Gender">Male<br>
+						<input type = "radio" name="Gender">Female<br>
+						<input type = "radio" name = "Gender">Others<br>
+					</div>
+					<br>
+				Qualification: <select>
+					<option value = "10th">10th</option>
+					<option value = "12th">12th</option>
+					<option value = "Graduation">Graduation</option>
+					<option value = "Diploma">Diploma</option>
+				</select>
+
+				<br><br>
+
+				DOB: <input type="text" name = "DOB">
+
+				<br><br>
+				Address:
+				<textarea></textarea>
+				<br><br>
+
+				Payment: <br>
+				<div style = "padding-left: 10px"> 
+					<input type = "checkbox" name = "Payment">Credit<br>
+					<input type = "checkbox"  name = "Payment">Debit<br>
+				</div>
+				<input type = "submit" value="Submit">
+				</form>
+
+		</fieldset>
+
+	</body>
+</html>
