@@ -2,6 +2,8 @@
 	<head>
 		<title>Common Entrance Test</title>
 		<script type="text/javascript">
+
+			/* For showing the text of the image when mouse hovers on it */
 			function showText(){
 				var a = document.getElementById('imageText') ;
 				a.innerHTML = "Image text"	;
@@ -16,14 +18,22 @@
 				}
 
 			}
+			// Mouse hover javascript ends
 
+			/* For validating the text fields by their id's 
+				id is passed as a parameter to the function
+			*/
 			function validate(id){
 				var x = document.getElementById(id).value ; 
 				if(x.length == 0){
 					if (id == 'f_name')
-						alert("Please enter the first name")
+						alert("Please enter the first name") ; 
 					if (id == 'l_name')
-						alert("Please enter the last name")
+						alert("Please enter the last name"); 
+
+					// the below line takes the focus of the mouse key
+					// back to the field where the validation was not 
+					// passed
 					document.getElementById(id).focus() ; 
 				}
 			}
@@ -31,15 +41,24 @@
 			
 
 		</script>
-
-
 	</head>
+
+
+	<!-- Main body of the html  -->
+	<!-- The margin styles helps the data to look good -->
 	<body style = "margin-left: 100px; margin-right : 50px">
 		<h1 style="text-align: center">CET</h1>
+
+		<!-- For inserting the image  -->
+
 		<div style = "float:right ;">
 			<img src = "msit.jpg" height  = "100px" width="100px" alt= "image"  onmouseover = "showText()" id = "image1">
 			<div id= "imageText"> </div> 
 		</div>
+
+
+		<!-- For inserting the tables  -->
+		<!-- Check the required properties of the table  -->
 		<table border="5px" style = "border-color:green; margin-bottom:30px" height = "100px" width = "400px" >
 			<thead>
 				<th>Subject</th>
@@ -48,9 +67,14 @@
 				<th>Day</th>
 			</thead>
 
+			<!-- Footer of the table ..Note that the text for this 
+			row appears at the bottom -->
 			<tfoot>
+				<!-- colspan is for combining the 4 table columns in the single one -->
 				<td colspan="4"><center>This is a footer </center></td>
 			</tfoot>
+
+			<!-- Main body of the table -->
 			<tbody>
 				<tr>
 					<td>B.tech</td>
@@ -66,17 +90,39 @@
 					<td>Sunday</td>
 				</tr>
 			</tbody>
+			<!-- Table ends -->
+
 		</table>
 
 		
 
-
+		<!-- Fieldsets are used to enclose a group of
+		related form fields: -->
 		<fieldset style  = "padding: 20px 20px 20px 20px">
+			<!-- legend specifies the title for the fieldset -->
 			<legend style = "text-align : center">Personal Info</legend>
+
+			<!-- Form tag for creating the form -->
 			<form>
+			<!-- 
+				NOTE: Text boxes, checkboxes and radion buttons are created with the help of
+						input tag 
+						For creating the text box the attribute type="text"
+						For creating the checkbox the attribute type="checkbox"
+						For creaing the radion button the attribute type = "radio"
+						Please note that for a group of radio buttons the name remains same
+						If there is different name for the radion buttons they will behave
+						as if they belong to different groups and the more than one radion buttons
+						can be checked at the same time -->
+		 
+				<!-- onblur event describes the time when you try to move the mouse out of the 
+				text field after you have done typing or fooling the program around -->
+				<!-- Mark that the id of this field is passed to the validate function of JS -->
 				First Name: <input type= "text" id = "f_name" onblur ="validate('f_name')" name = "fname"> <br><br>
 				Last Name: <input type= "text" id = "l_name" onblur ="validate('l_name')" name = "lname"> <br><br>
 
+<!-- 				For radion buttons .. Please note the code properly according to the NOTE
+				given above -->
 				Gender:
 					<div style = "padding-left: 10px">
 						<input type = "radio" name = "Gender" value = "M">Male<br>
@@ -84,6 +130,10 @@
 						<input type = "radio" name = "Gender" value = "O">Others<br>
 					</div>
 					<br>
+
+
+				<!-- The dropdown list is created by using select tag -->
+				<!-- and the option field describes the different options for selection -->
 				Qualification: <select name = "Qualification">
 					<option value = "10th">10th</option>
 					<option value = "12th">12th</option>
@@ -93,21 +143,31 @@
 
 				<br><br>
 
+				<!-- For date field the type="date" -->
 				DOB: <input type="date" name = "DOB">
 
 				<br><br>
 				Address:
+				<!-- Textarea is for large box of text note difference between the box size for 
+				First Name and Address -->
 				<textarea></textarea>
 				<br><br>
 
+
+				<!-- For checkboxes .. Re-read the NOTE above if you forgot what was said
+				about the checkbox -->
 				Payment: <br>
 				<div style = "padding-left: 10px"> 
 					<input type = "checkbox" name = "Payment" value = "Credit">Credit<br>
 					<input type = "checkbox"  name = "Payment" value  = "Debit">Debit<br>
 				</div>
 				<input type = "submit" value="Submit">
-			</form>
 
+				
+			</form>
+				<!-- Form ends -->
+				
+				
 		</fieldset>
 
 	</body>
